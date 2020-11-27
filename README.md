@@ -7,12 +7,12 @@
 
 ## Head developers
 
-..* Thomas Menet
-..* Bowie van der Grijspaarde
+- Thomas Menet
+- Bowie van der Grijspaarde
 
 ## Trello 
 
-..* [Trello board] (https://trello.com/b/N3ASU5FV/horizonreview)
+https://trello.com/b/N3ASU5FV/horizonreview
 
 ## Project overview
 
