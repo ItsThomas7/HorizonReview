@@ -2,8 +2,8 @@
 
 ## Employers
 
-..* Paul Bakkum
-..* Sander Lammers
+- Paul Bakkum
+- Sander Lammers
 
 ## Head developers
 
