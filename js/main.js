@@ -33,8 +33,9 @@ function showTab(n) {
     }
 
     if(n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Bevestig";
+        document.getElementById("nextBtn").style.display = "none";
     } else {
+        document.getElementById("nextBtn").style.btn = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";
     }
 
