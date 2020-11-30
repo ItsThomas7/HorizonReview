@@ -15,7 +15,7 @@
 
 <body>
 <header class="topnav">
-    <button class="open-login" onclick="openLogin()">Admin</button>
+    <button class="open-login" onclick="toggleLogin(true)">Admin</button>
     <div class="login-popup" id="loginForm">
         <form action="#" class="form-container">
             <h2>Inloggen</h2>
@@ -29,7 +29,7 @@
             <input type="text" placeholder="Wachtwoord" name="psw" required>
 
             <button type="submit" class="btn">Inloggen</button>
-            <button type="button" class="btn cancel" onclick="closeLogin()">Sluiten</button>
+            <button type="button" class="btn cancel" onclick="toggleLogin(false)">Sluiten</button>
         </form>
     </div>
     <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
