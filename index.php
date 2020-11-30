@@ -32,7 +32,7 @@
             <button type="button" class="btn cancel" onclick="closeLogin()">Sluiten</button>
         </form>
     </div>
-    <img id="Horizonlogo"src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
+    <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
   margin-left: auto;
   margin-right: auto;">
 </header>
