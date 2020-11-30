@@ -3,10 +3,15 @@ body {
     font-size: 17px;
 }
 * {box-sizing: border-box;}
+p{
+
+    font-family: Helvetica Neue Pro,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+}
 
 /* Header styling */
 .open-login {
-    background-color: #555;
+    background-color: #e87b1e;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -16,6 +21,9 @@ body {
     top: 23px;
     left: 28px;
     width: 280px;
+    border-radius: 27px;
+    font-family: Helvetica,Helvetica,Arial,sans-serif;
+    font-weight: 500;
 }
 
 .login-popup {
@@ -111,5 +119,3 @@ input.invalid {
 .step.finish {
     background-color: #4CAF50;
 }
-
-
