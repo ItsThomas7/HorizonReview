@@ -50,8 +50,36 @@
 
         <div class="tab">Info student:
             <p><input placeholder="Student nr..." oninput="this.className = ''" ></p>
-            <p><input <!--readonly--> placeholder="Student naam..." oninput="this.className = ''"></p>
-            <p><input <!--readonly--> placeholder="Opleiding..." oninput="this.className = ''" ></p>
+            <p><input placeholder="Student naam..." oninput="this.className = ''"></p> <!-- Readonly toevoegen als backend klaar is -->
+            <p><input placeholder="Opleiding..." oninput="this.className = ''" ></p> <!-- Readonly toevoegen als backend klaar is -->
+        </div>
+
+        <div class="tab">
+            <h2>Werkprocessen</h2>
+            <b>Welke werkprocessen gaat u beoordelen?</b>
+            <table>
+                <tr>
+                    <td><label for="select-all">Selecteer alles</label></td>
+                    <td><input type="checkbox" id="select-all"></td>
+                </tr>
+                <tr>
+                    <td><label for="wp1">Werkproces 1</label></td>
+                    <td><input type="checkbox" id="wp1" name="wProces" value="wp1"></td>
+                </tr>
+                <tr>
+                    <td><label for="wp2">Werkproces 2</label></td>
+                    <td><input type="checkbox" id="wp2" name="wProces" value="wp2"></td>
+                </tr>
+                <tr>
+                    <td><label for="wp3">Werkproces 3</label></td>
+                    <td><input type="checkbox" id="wp3" name="wProces" value="wp3"></td>
+                </tr>
+                <tr>
+                    <td><label for="wp4">Werkproces 4</label></td>
+                    <td><input type="checkbox" id="wp4" name="wProces" value="wp4"></td>
+                </tr>
+
+            </table>
         </div>
 
         <div class="tab">Werkprocessen:

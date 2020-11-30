@@ -1,4 +1,7 @@
-body {font-family: Raleway;}
+body {
+    font-family: Raleway;
+    font-size: 17px;
+}
 * {box-sizing: border-box;}
 
 /* Header styling */
@@ -64,11 +67,6 @@ body {font-family: Raleway;}
 .open-login:hover {
     opacity: 1;
 }
-<<<<<<< HEAD
-#horizonlogo{
-  
-}
-=======
 
 /* Form styling */
 #scoreForm {
@@ -115,4 +113,3 @@ input.invalid {
 }
 
 
->>>>>>> 95a5b38bd530ebcc3b95189dba6d0498edc6fb54

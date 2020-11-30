@@ -81,3 +81,11 @@ function fixStepIndicator(n) {
     // ... En voegt deze vervolgens toe aan de current step
     x[n].className += " active";
 }
+
+// Selecteer alle werkproces checkboxes
+document.getElementById('select-all').onclick = function() {
+    var checkboxes = document.getElementsByName('wProces');
+    for (var checkbox of checkboxes) {
+        checkbox.checked = this.checked;
+    }
+}
