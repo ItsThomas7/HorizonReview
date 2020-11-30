@@ -11,6 +11,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!--  JS  -->
+    <script src="js/main.js"></script>
+
 </head>
 
 <body>
@@ -32,6 +36,12 @@
             <button type="button" class="btn cancel" onclick="toggleLogin(false)">Sluiten</button>
         </form>
     </div>
+<<<<<<< HEAD
+    <img id="Horizonlogo"src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block  margin-left: auto;
+  margin-right: auto;">
+</header>
+
+=======
     <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
   margin-left: auto;
   margin-right: auto;">
@@ -175,5 +185,6 @@
 
 <!--  JS  -->
 <script src="js/main.js"></script>
+>>>>>>> be0f426b317c5bb01ef7f4ab35c876485770d889
 </body>
 </html>
