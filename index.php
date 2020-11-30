@@ -21,7 +21,7 @@
 <header class="topnav">
     <button class="open-login" onclick="toggleLogin(true)">Admin</button>
     <div class="login-popup" id="loginForm">
-        <form method="post" action="#" class="form-container">
+        <form method="post" action="admin.php" class="form-container">
             <h2>Inloggen</h2>
 
             <label for="uName"><b>Naam</b></label>
