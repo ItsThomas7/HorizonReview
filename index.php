@@ -24,7 +24,8 @@
             <input type="text" placeholder="Naam" name="uName" required>
 
             <label for="psw"><b>Wachtwoord</b></label>
-            <!-- Change to input password after testing -->
+
+            <!-- TODO Change to input password after testing -->
             <input type="text" placeholder="Wachtwoord" name="psw" required>
 
             <button type="submit" class="btn">Inloggen</button>
@@ -50,8 +51,8 @@
 
         <div class="tab">Info student:
             <p><input placeholder="Student nr..." oninput="this.className = ''" ></p>
-            <p><input placeholder="Student naam..." oninput="this.className = ''"></p> <!-- Readonly toevoegen als backend klaar is -->
-            <p><input placeholder="Opleiding..." oninput="this.className = ''" ></p> <!-- Readonly toevoegen als backend klaar is -->
+            <p><input placeholder="Student naam..." oninput="this.className = ''"></p> <!-- TODO Readonly toevoegen als backend klaar is -->
+            <p><input placeholder="Opleiding..." oninput="this.className = ''" ></p> <!-- TODO Readonly toevoegen als backend klaar is -->
         </div>
 
         <div class="tab">
