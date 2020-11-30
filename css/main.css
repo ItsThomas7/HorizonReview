@@ -8,7 +8,17 @@ p{
     font-family: Helvetica Neue Pro,Helvetica,Arial,sans-serif;
     font-weight: 300;
 }
-
+button{
+  background-color: #140C73;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  border-radius: 27px;
+}
 /* Header styling */
 .open-login {
     background-color: #e87b1e;
@@ -31,8 +41,10 @@ p{
     position: fixed;
     top: 0;
     left: 15px;
-    border: 3px solid #f1f1f1;
+    border: none;
     z-index: 9;
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 3px;
 }
 
 .form-container {
@@ -65,10 +77,11 @@ p{
     width: 100%;
     margin-bottom: 10px;
     opacity: 0.8;
+    border-radius: 27px;
 }
 
 .form-container .cancel {
-    background-color: red;
+    background-color: #e87b1e;
 }
 
 .form-container .btn:hover,
@@ -90,7 +103,8 @@ input {
     width: 100%;
     font-size: 17px;
     font-family: Raleway;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #979797;
+    border-radius: 20px;
 }
 
 input.invalid {
