@@ -59,6 +59,9 @@
         <div class="tab">
             <h2>Werkprocessen</h2>
             <b>Welke werkprocessen gaat u beoordelen?</b>
+
+            <!-- TODO Deze table zal aangemaakt moeten worden via een php loop die alle werkprocessen doorloopt van de gekozen opleiding -->
+
             <table>
                 <tr>
                     <td><label for="select-all">Selecteer alles</label></td>
@@ -85,6 +88,10 @@
         </div>
 
         <div class="tab">Werkprocessen:
+            <!-- TODO   Werkprocessen worden gevuld vanuit database die overeenkomt met de gekozen
+                        opleiding en geselecteerde werkprocessen in de vorige stap
+                        Als er meer dan 4 werkprocessen zijn worden ze verdeeld over meer pagina's -->
+
             <p>Werkproces 1:
                 <input type="radio" id="one" name="score1" value="1">
                 <label for="one">1</label>
