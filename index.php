@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'connectDB'; ?>
+<?php include 'connectDB.php'; ?>
 <html lang="nl">
 <head>
     <title>Horizon College stage beoordeling formulier</title>

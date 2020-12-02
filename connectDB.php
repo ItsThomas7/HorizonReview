@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=HorizonReview", $username, $password);
