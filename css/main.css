@@ -22,6 +22,9 @@ button{
 button:hover{
   opacity: 1;
 }
+button:enabled{
+  border: none;
+}
 /* Header styling */
 .open-login {
     background-color: #e87b1e;
