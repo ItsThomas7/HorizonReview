@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- TODO Preventie toevoegen zodat je niet op deze pagina kan komen als er niet ingelogd is -->
+
     <title>Horizon Review</title>
 
     <!-- Meta tags -->
