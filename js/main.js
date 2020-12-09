@@ -22,7 +22,13 @@ var currentTab = 0; // Current tab is first
 showTab(currentTab); // Display current tab
 
 function showTab(n) {
+    console.log(document);
     var x = document.getElementsByClassName("tab");
+
+    if(!x){
+        console.log("X does not exist!");
+    }
+
     x[n].style.display = "block";
 
     // Maakt vorige/volgende buttons dynamisch
@@ -35,7 +41,7 @@ function showTab(n) {
     if(n == (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
     } else {
-        document.getElementById("nextBtn").style.btn = "inline";
+        document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";
     }
 
@@ -45,6 +51,10 @@ function showTab(n) {
 
 function nextPrev(n) {
     var x = document.getElementsByClassName("tab");
+
+    if(!x) {
+        console.log("x does not exist!");
+    }
 
     // Exit functie als een veld in form niet valid is
     if (n == 1 && !validateForm()) return false;
@@ -90,6 +100,8 @@ function fixStepIndicator(n) {
         x[i].className = x[i].className.replace(" active", "");
     }
     // ... En voegt deze vervolgens toe aan de current step
+    console.log(n,x);
+
     x[n].className += " active";
 }
 
