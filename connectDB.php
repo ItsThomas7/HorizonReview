@@ -11,5 +11,5 @@ try {
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
-//Zet include='conncectDB.php'; Om een connectie te maken met de database indien nodig op een pagina. (In php quotes <?php ? >)
+//Zet include 'conncectDB.php'; Om een connectie te maken met de database indien nodig op een pagina. (In php quotes <?php ? >)
 ?>

@@ -1,34 +1,7 @@
 <!DOCTYPE html>
 <?php include 'connectDB.php';
+include 'login.php'
 
-if(isset($_POST["username"]))
-{
-  if(empty($_POST["username"]) || empty($_POST["password"]))
-  {
-    $message = '<label>All fields are required</label>';
-  }
-  else
-  {
-      $query = "SELECT * FROM admin WHERE naam = :username AND wachtwoord = :password";
-      $statement = $connect->prepare($query);
-      $statement->execute(
-        array(
-            'username' => $_POST["username"],
-            'password' => $_POST["password"]
-        )
-      );
-      $count = $statement->rowCount();
-      if($count > 0)
-      {
-        $_SESSION["username"] = $_POST["username"];
-        header("location:admin.php");
-      }
-      else
-      {
-          $message = '<label>Foute Invoer</label>';
-      }
-    }
-  }
 
 
 
@@ -51,25 +24,7 @@ if(isset($_POST["username"]))
 
 <body>
 <header class="topnav">
-    <button class="open-login" onclick="toggleLogin(true)">Admin</button>
 
-    <div class="login-popup" id="loginForm">
-
-        <form method="post" class="form-container">
-            <h2>Inloggen</h2>
-
-            <label for="username"><b>Naam</b></label>
-            <input type="text" placeholder="Naam" name="username" required>
-
-            <label for="password"><b>Wachtwoord</b></label>
-
-            <!-- TODO Change to input password after testing -->
-            <input type="password" placeholder="Wachtwoord" name="password" required>
-
-            <input type="submit" name="login" value="login" class="btn"></button>
-            <button type="button" class="btn cancel" onclick="toggleLogin(false)">Sluiten</button>
-        </form>
-    </div>
     <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
   margin-left: auto;
   margin-right: auto;">
