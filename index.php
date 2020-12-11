@@ -70,6 +70,12 @@ if (isset($_POST["username"])) {
     </div>
 
     <div class="tab">
+        <h2>Algemene werknemersvaardigheden</h2>
+        <label>Persoonlijke ontwikkeling</label>
+
+    </div>
+
+    <div class="tab">
         <h2>Werkprocessen</h2>
         <b>Welke werkprocessen gaat u beoordelen?</b>
 
@@ -183,6 +189,7 @@ if (isset($_POST["username"])) {
 
 
     <div style="text-align: center;margin-top: 40px;">
+        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>

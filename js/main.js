@@ -102,7 +102,10 @@ function fixStepIndicator(n) {
     // ... En voegt deze vervolgens toe aan de current step
     console.log(n,x);
 
-    x[n].className += " active";
+    if (n < x.length)
+    {
+        x[n].className += " active";
+    }
 }
 
 // Selecteer alle werkproces checkboxes
