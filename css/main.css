@@ -111,6 +111,10 @@ input {
     border-radius: 20px;
 }
 
+input[type=checkbox] {
+    width: 50px;
+}
+
 input.invalid {
     background-color: #ffdddd;
 }

@@ -23,9 +23,6 @@ if (isset($_POST["username"])) {
         }
     }
 }
-
-
-
 ?>
 <html lang="nl">
 <head>
@@ -66,6 +63,10 @@ if (isset($_POST["username"])) {
         <!-- TODO Readonly toevoegen als backend klaar is -->
         <p><input placeholder="Opleiding..." oninput="this.className = ''"></p>
         <!-- TODO Readonly toevoegen als backend klaar is -->
+
+        <label class="small-text">Aanvinken als van toepassing</label>
+        <p>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></p>
+
     </div>
 
     <div class="tab">
