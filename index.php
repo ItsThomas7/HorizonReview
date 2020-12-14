@@ -179,74 +179,91 @@ if (isset($_POST["username"])) {
         </table>
     </div>
 
-    <div class="tab">Werkprocessen:
+    <div class="tab">
         <!-- TODO   Werkprocessen worden gevuld vanuit database die overeenkomt met de gekozen
                     opleiding en geselecteerde werkprocessen in de vorige stap
                     Als er meer dan 4 werkprocessen zijn worden ze verdeeld over meer pagina's -->
+        <h2>Werkproces 1</h2>
 
-        <p>Werkproces 1:
-            <input type="radio" id="one" name="score1" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score1" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score1" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score1" value="4">
-            <label for="four">4</label>
-        </p>
-        <p>Werkproces 2:
-            <input type="radio" id="one" name="score2" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score2" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score2" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score2" value="4">
-            <label for="four">4</label>
-        </p>
-        <p>Werkproces 3:
-            <input type="radio" id="one" name="score3" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score3" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score3" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score3" value="4">
-            <label for="four">4</label>
-        </p>
+        <p><b>Werkwijze</b></p>
+        <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
+        Procedures zijn opgevolgd</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Inhoud resultaat</b></p>
+        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoed aan de eisen</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Vorm resultaat</b></p>
+        <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
+            (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Digitale vaardigheden</b></p>
+        <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="4">4</label></div>
+        <label>Altijd</label>
     </div>
 
-    <div class="tab">Meer werkprocessen:
-        <p>Werkproces 1:
-            <input type="radio" id="one" name="score4" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score4" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score4" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score4" value="4">
-            <label for="four">4</label>
-        </p>
-        <p>Werkproces 2:
-            <input type="radio" id="one" name="score5" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score5" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score5" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score5" value="4">
-            <label for="four">4</label>
-        </p>
-        <p>Werkproces 3:
-            <input type="radio" id="one" name="score6" value="1">
-            <label for="one">1</label>
-            <input type="radio" id="two" name="score6" value="2">
-            <label for="two">2</label>
-            <input type="radio" id="three" name="score6" value="3">
-            <label for="three">3</label>
-            <input type="radio" id="four" name="score6" value="4">
-            <label for="four">4</label>
-        </p>
+    <div class="tab">
+        <h2>Werkproces 2</h2>
+
+        <p><b>Werkwijze</b></p>
+        <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
+            Procedures zijn opgevolgd</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Inhoud resultaat</b></p>
+        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoed aan de eisen</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Vorm resultaat</b></p>
+        <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
+            (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="4">4</label></div>
+        <label>Altijd</label>
+
+        <p><b>Digitale vaardigheden</b></p>
+        <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="4">4</label></div>
+        <label>Altijd</label>
     </div>
 
     <div class="tab">Eind beoordeling:
