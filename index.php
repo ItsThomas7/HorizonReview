@@ -44,7 +44,6 @@ if (isset($_POST["username"])) {
 
 <body>
 <header class="topnav">
-
     <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
   margin-left: auto;
   margin-right: auto;">
@@ -72,6 +71,14 @@ if (isset($_POST["username"])) {
     <div class="tab">
         <h2>Algemene werknemersvaardigheden</h2>
         <label>Persoonlijke ontwikkeling</label>
+        <p class="small-text">De student toon zich geïnteresseerd en gaat goed om met feedback. En/of de student past het geleerde toe.</p>
+        <label>Te weinig</label>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="1">1</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="2">2</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="3">3</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="4">4</label></div>
+        <label>Altijd</label>
+
 
     </div>
 
