@@ -1,22 +1,7 @@
-<?php
 
-session_start();
-
-if(isset($_SESSION["username"]))
-{
-  echo '<h3>Login Succes, Welcome - '.$_SESSION["username"].'</h3>';
-}
-else
-  {
-    header("location:index.php");
-  }
-
- ?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <!-- TODO Preventie toevoegen zodat je niet op deze pagina kan komen als er niet ingelogd is -->
-
     <title>Horizon Review</title>
 
     <!-- Meta tags -->
@@ -40,7 +25,22 @@ else
 </header>
 <body>
 <h1 style="text-align:center;">Overzicht Gegevens</h1>
+<?php
 
+session_start();
+
+if(isset($_SESSION["username"]))
+{
+  echo '<h3 style="margin-top: 0px;">U bent ingelogd, Welkom - '.$_SESSION["username"].'</h3>';
+}
+else
+  {
+    header("location:index.php");
+  }
+
+ ?>
+
+ 
 <?php
 echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>E-mail</th><th>Bedrijfsnaam</th><th>BPV Begeleider</th><th>POL E-mail</th><th>POL tel nummer</th><th>Tekenbevoegde</th><th>Tekenbevoegde E-Mail</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
