@@ -72,13 +72,11 @@ if (isset($_POST["username"])) {
     <div class="tab">
         <h2>Algemene werknemersvaardigheden</h2>
         <p><b>Persoonlijke ontwikkeling</b></p>
-        <p class="small-text">De student toon zich geïnteresseerd en gaat goed om met feedback. En/of de student past het geleerde toe.</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="0" required>De student toont zich niet geïnteresseerd en gaat niet goed om met feedback. De student past het geleerde niet toe</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="1" required>De student toont zich soms geïnteresseerd en gaat soms goed om met feedback. De student past soms het geleerde toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="2" required>De student toont zich over het algemeen geïnteresseerd en gaat redelijk goed om met feedback. De student past het geleerde over het algemeen toe</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="3" required>De student toont zich altijd geïnteresseerd en gaat goed om met feedback. De student past het geleerde altijd toe</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Interne communicatie</b></p>
         <p class="small-text">De student communiceert op een gepaste en vriendelijke manier met collega's en leidinggevende(n).

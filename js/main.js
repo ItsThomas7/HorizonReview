@@ -79,6 +79,8 @@ function validateForm() {
 
     // Loop die elk input veld in de current tab checkt
     for (i = 0; i < y.length; i++){
+        // Als veld een opmerking is sla deze over
+        if(y[i].className == "comment") continue;
         // Als veld leeg is
         if(y[i].value == "") {
             y[i].className += " invalid";
