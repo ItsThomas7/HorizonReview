@@ -24,7 +24,7 @@ if(isset($_POST["username"]))
   }
   else
   {
-      $query = "SELECT * FROM admin WHERE password = :username AND password = :password";
+      $query = "SELECT * FROM admin WHERE naam = :username AND wachtwoord = :password";
       $statement = $connect->prepare($query);
       $statement->execute(
         array(

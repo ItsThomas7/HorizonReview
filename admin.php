@@ -41,5 +41,51 @@ else
 <body>
 <h1 style="text-align:center;">Overzicht Gegevens</h1>
 
-<!-- Toevoegen van het ophalen gegevens database -->
+<?php
+echo "<table style='border: solid 1px black;'>";
+ echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>E-mail</th><th>Bedrijfsnaam</th><th>BPV Begeleider</th><th>POL E-mail</th><th>POL tel nummer</th><th>Tekenbevoegde</th><th>Tekenbevoegde E-Mail</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
+
+class TableRows extends RecursiveIteratorIterator {
+    function __construct($it) {
+        parent::__construct($it, self::LEAVES_ONLY);
+    }
+
+    function current() {
+        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+    }
+
+    function beginChildren() {
+        echo "<tr>";
+    }
+
+    function endChildren() {
+        echo "</tr>" . "\n";
+    }
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "HorizonReview";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT id, studentnr, klas, voornaam, tussenvoegsel, achternaam, email, bedrijfsnaam, bpvbegeleider, polemail, poltelnr, tekenbevoegde, tekenbevoegdemail, startstage, eindstage, uren, opleidingscode FROM students");
+    $stmt->execute();
+
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+        echo $v;
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</table>";
+?>
+
 </body>
