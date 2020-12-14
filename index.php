@@ -64,7 +64,7 @@ if (isset($_POST["username"])) {
         <p><input placeholder="Opleiding..." oninput="this.className = ''"></p>
         <!-- TODO Readonly toevoegen als backend klaar is -->
 
-        <label class="small-text">Aanvinken als van toepassing</label>
+        <label class="small-text">Aanvinken indien van toepassing</label>
         <p>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></p>
 
     </div>
@@ -74,30 +74,30 @@ if (isset($_POST["username"])) {
         <p><b>Persoonlijke ontwikkeling</b></p>
         <p class="small-text">De student toon zich geïnteresseerd en gaat goed om met feedback. En/of de student past het geleerde toe.</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="persOnt" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="persOnt" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Interne communicatie</b></p>
         <p class="small-text">De student communiceert op een gepaste en vriendelijke manier met collega's en leidinggevende(n).
         De student gebruikt de juiste communicatiemiddelen</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="intComm" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="intComm" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="intComm" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="intComm" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Externe communicatie</b></p>
         <p class="small-text">De student communiceert op een gepaste en vriendelijke manier met klanten en/of andere externen.
             De student gebruikt de juiste communicatiemiddelen</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="extComm" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="extComm" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="extComm" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="extComm" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Samenwerking</b></p>
@@ -105,47 +105,47 @@ if (isset($_POST["username"])) {
             En/of de student is hulpvaardig naar collega's toe.
             En/of de student is in staat om met iedere collega samen te werken.</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="samenwerking" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="samenwerking" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="samenwerking" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="samenwerking" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Bedrijfscultuur</b></p>
         <p class="small-text">De student kent de regels en bedrijfscultuur en/of gedraagt zich hiernaar</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="bedCult" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="bedCult" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="bedCult" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="bedCult" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Initiatief</b></p>
         <p class="small-text">De student neemt binnen de eigen werkzaamheden initiatief.</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="initiatief" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="initiatief" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="initiatief" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="initiatief" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Afspraken</b></p>
         <p class="small-text">De student houdt zich aan gemaakte afspraken</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="afspr" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="afspr" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="afspr" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="afspr" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Werkdruk</b></p>
         <p class="small-text">De student gaat om met werkdruk.
         De student stelt prioriteiten.</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkdruk" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkdruk" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkdruk" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkdruk" value="4" required>4</label></div>
         <label>Altijd</label>
     </div>
 
@@ -190,38 +190,38 @@ if (isset($_POST["username"])) {
         <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
         Procedures zijn opgevolgd</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Inhoud resultaat</b></p>
         <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoed aan de eisen</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Vorm resultaat</b></p>
         <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
             (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Digitale vaardigheden</b></p>
         <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="4" required>4</label></div>
         <label>Altijd</label>
     </div>
 
@@ -232,38 +232,38 @@ if (isset($_POST["username"])) {
         <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
             Procedures zijn opgevolgd</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Inhoud resultaat</b></p>
-        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoed aan de eisen</p>
+        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoet aan de eisen</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="inhoud" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Vorm resultaat</b></p>
         <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
             (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="vorm" value="4" required>4</label></div>
         <label>Altijd</label>
 
         <p><b>Digitale vaardigheden</b></p>
         <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
         <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="1">1</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="2">2</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="3">3</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="4">4</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="1" required>1</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="2" required>2</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="3" required>3</label></div>
+        <div class="radio-box"><label><input type="radio" name="digSkill" value="4" required>4</label></div>
         <label>Altijd</label>
     </div>
 
