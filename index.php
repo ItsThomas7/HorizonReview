@@ -74,77 +74,58 @@ if (isset($_POST["username"])) {
         <p><b>Persoonlijke ontwikkeling</b></p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="0" required>De student toont zich niet geïnteresseerd en gaat niet goed om met feedback. De student past het geleerde niet toe</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="1" required>De student toont zich soms geïnteresseerd en gaat soms goed om met feedback. De student past soms het geleerde toe.</label></div>
-        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="2" required>De student toont zich over het algemeen geïnteresseerd en gaat redelijk goed om met feedback. De student past het geleerde over het algemeen toe</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="2" required>De student toont zich meestal geïnteresseerd en gaat redelijk goed om met feedback. De student past het geleerde meestal toe</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="persOnt" value="3" required>De student toont zich altijd geïnteresseerd en gaat goed om met feedback. De student past het geleerde altijd toe</label></div>
         <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Interne communicatie</b></p>
-        <p class="small-text">De student communiceert op een gepaste en vriendelijke manier met collega's en leidinggevende(n).
-        De student gebruikt de juiste communicatiemiddelen</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="intComm" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="intComm" value="0" required>De student communiceert zelden op een gepaste en vriendelijke manier met collega's en leidinggevende(n). De student gebruikt zelden de juist communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="intComm" value="1" required>De student communiceert soms op een gepaste en vriendelijke manier met collega’s en leidinggevende(n). De student gebruikt soms de juiste communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="intComm" value="2" required>De student communiceert meestal op een gepaste en vriendelijke manier met collega’s en leidinggevende(n). De student gebruikt meestal de juiste communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="intComm" value="3" required>De student communiceert altijd op een gepaste en vriendelijke manier met collega’s en leidinggevende(n). De student gebruikt altijd de juiste communicatiemiddelen.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Externe communicatie</b></p>
-        <p class="small-text">De student communiceert op een gepaste en vriendelijke manier met klanten en/of andere externen.
-            De student gebruikt de juiste communicatiemiddelen</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="extComm" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="extComm" value="0" required>De student communiceert zelden op een gepaste en vriendelijke manier met klanten en/of andere externen.De student gebruikt zelden de juiste communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="extComm" value="1" required>De student communiceert soms op een gepaste en vriendelijke manier met klanten en/of andere externen. De student gebruikt soms de juiste communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="extComm" value="2" required>De student communiceert meestal op een gepaste en vriendelijke manier met klanten en/of andere externen. De student gebruikt meestal de juiste communicatiemiddelen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="extComm" value="3" required>De student communiceert altijd op een gepaste en vriendelijke manier met klanten en/of andere externen. De student gebruikt altijd de juiste communicatiemiddelen.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Samenwerking</b></p>
-        <p class="small-text">De student gaat op een respectvolle manier met collega's om.
-            En/of de student is hulpvaardig naar collega's toe.
-            En/of de student is in staat om met iedere collega samen te werken.</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="samenwerking" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="samen" value="0" required>De student gaat niet op een respectvolle manier met collega’s om. De student is niet hulpvaardig naar collega’s toe. De student is niet in staat om met iedere collega samen te werken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="samen" value="1" required>De student gaat over het algemeen op een respectvolle manier met collega’s om en is over het algemeen hulpvaardig naar collega’s toe. De student is in staat om met iedere collega samen te werken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="samen" value="2" required>De student gaat meestal op een respectvolle manier met collega’s om en is meestal hulpvaardig naar collega’s toe.De student is in staat om met iedere collega samen te werken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="samen" value="3" required>De student gaat altijd op een respectvolle manier met collega’s om en is altijd hulpvaardig naar collega’s toe.De student is in staat om met iedere collega samen te werken.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Bedrijfscultuur</b></p>
-        <p class="small-text">De student kent de regels en bedrijfscultuur en/of gedraagt zich hiernaar</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="bedCult" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="bedCult" value="0" required>De student kent de regels en bedrijfscultuur niet en/of gedraagt zich hier niet naar.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="bedCult" value="1" required>De student kent de regels en bedrijfscultuur en gedraagt zich hier over het algemeen naar.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="bedCult" value="2" required>De student kent de regels en bedrijfscultuur en gedraagt zich hier meestal naar.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="bedCult" value="3" required>De student kent de regels en bedrijfscultuur en gedraagt zich hier altijd naar.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Initiatief</b></p>
-        <p class="small-text">De student neemt binnen de eigen werkzaamheden initiatief.</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="initiatief" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="initiatief" value="0" required>De student neemt binnen de eigen werkzaamheden geen initiatief. De student stelt indien nodig niet tijdig een hulpvraag.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="initiatief" value="1" required>De student neemt binnen de eigen werkzaamheden soms initiatief. De student stelt indien nodig soms een hulpvraag.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="initiatief" value="2" required>De student neemt binnen de eigen werkzaamheden meestal initiatief. De student stelt indien nodig meestal een hulpvraag.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="initiatief" value="3" required>De student neemt binnen de eigen werkzaamheden vaak initiatief. De student stelt indien nodig tijdig een hulpvraag.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
         <p><b>Afspraken</b></p>
-        <p class="small-text">De student houdt zich aan gemaakte afspraken</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="afspr" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="afspr" value="0" required>De student houdt zich te weinig aan gemaakte afspraken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="afspr" value="1" required>De student houdt zich over het algemeen aan gemaakte afspraken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="afspr" value="2" required>De student houdt zich op een enkel geval na aan gemaakte afspraken.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="afspr" value="3" required>De student houdt zich altijd aan gemaakte afspraken.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
-        <p><b>Werkdruk</b></p>
-        <p class="small-text">De student gaat om met werkdruk.
-        De student stelt prioriteiten.</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkdruk" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p><b>Afspraken</b></p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="0" required>De student gaat slecht om met werkdruk. De student stelt geen prioriteiten.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="1" required>De student gaat matig om met werkdruk en stelt zelden prioriteiten.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="2" required>De student gaat goed om met werkdruk en stelt vaak prioriteiten.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="3" required>De student gaat uitstekend om met werkdruk en stelt vaak prioriteiten.</label></div>
+        <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
     </div>
 
     <div class="tab">
