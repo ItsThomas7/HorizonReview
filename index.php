@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php include 'connectDB.php';
 include 'login.php';
+include 'getStudentData.php';
 
 if (isset($_POST["username"])) {
     if (empty($_POST["username"]) || empty($_POST["password"])) {
@@ -58,10 +59,10 @@ if (isset($_POST["username"])) {
     </div>
 
     <div class="tab">Info student:
-        <p><input placeholder="Student nr..." oninput="this.className = ''"></p>
-        <p><input placeholder="Student naam..." oninput="this.className = ''"></p>
+        <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
+        <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
         <!-- TODO Readonly toevoegen als backend klaar is -->
-        <p><input placeholder="Opleiding..." oninput="this.className = ''"></p>
+        <p><input placeholder="Opleiding..." id="opleiding" oninput="this.className = ''"></p>
         <!-- TODO Readonly toevoegen als backend klaar is -->
 
         <label class="small-text">Aanvinken indien van toepassing</label>

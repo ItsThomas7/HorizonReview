@@ -1,12 +1,10 @@
 body {
     font-size: 17px;
-}
-* {box-sizing: border-box;}
-p{
-
     font-family: Helvetica Neue Pro,Helvetica,Arial,sans-serif;
     font-weight: 300;
 }
+* {box-sizing: border-box;}
+
 button{
   background-color: #140C73;
   color: white;
@@ -149,7 +147,7 @@ div.radio-box {
 .radio-box input {
     width: 30px;
     display: block;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 /* TODO Get this to work */
