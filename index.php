@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php include 'connectDB.php';
 include 'login.php';
-include 'getStudentData.php';
 
 if (isset($_POST["username"])) {
     if (empty($_POST["username"]) || empty($_POST["password"])) {
@@ -61,13 +60,25 @@ if (isset($_POST["username"])) {
     <div class="tab">Info student:
         <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
         <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
-        <!-- TODO Readonly toevoegen als backend klaar is -->
-        <p><input placeholder="Opleiding..." id="opleiding" oninput="this.className = ''"></p>
-        <!-- TODO Readonly toevoegen als backend klaar is -->
+        <?php
+            $query = $conn->prepare('SELECT * FROM opleidingen');
+            $query->execute();
+            $data = $query->fetchAll();
+        ?>
 
-        <label class="small-text">Aanvinken indien van toepassing</label>
-        <p>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></p>
+        <label for="edu">Kies een opleiding</label>
+        <p>
+            <select class="select" name="edu">
+                <?php foreach($data as $row): ?>
+                    <option value="<?=$row['opleidingscode']?>"><?=$row['opleiding']?></option>
+                <?php endforeach; ?>
+            </select>
+        </p>
 
+        <p>
+            <label class="small-text">Aanvinken indien van toepassing</label><br>
+            <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></label>
+        </p>
     </div>
 
     <div class="tab">
@@ -121,7 +132,7 @@ if (isset($_POST["username"])) {
         <div class="radio-box"><label class="small-text"><input type="radio" name="afspr" value="3" required>De student houdt zich altijd aan gemaakte afspraken.</label></div>
         <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
 
-        <p><b>Afspraken</b></p>
+        <p><b>Werkdruk</b></p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="0" required>De student gaat slecht om met werkdruk. De student stelt geen prioriteiten.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="1" required>De student gaat matig om met werkdruk en stelt zelden prioriteiten.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="werkdruk" value="2" required>De student gaat goed om met werkdruk en stelt vaak prioriteiten.</label></div>
@@ -129,122 +140,334 @@ if (isset($_POST["username"])) {
         <p><input placeholder="Opmerking..." class="comment" oninput="this.className = ''"></p>
     </div>
 
+    <!-- B1-K1-W1 -->
     <div class="tab">
-        <h2>Werkprocessen</h2>
-        <b>Welke werkprocessen gaat u beoordelen?</b>
+        <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
-        <!-- TODO Deze table zal aangemaakt moeten worden via een php loop die alle werkprocessen doorloopt van de gekozen opleiding -->
+        <p><b>W1: Stelt de opdracht vast</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
 
-        <table>
-            <tr>
-                <td><label for="select-all">Selecteer alles</label></td>
-                <td><input type="checkbox" id="select-all"></td>
-            </tr>
-            <tr>
-                <td><label for="wp1">Werkproces 1</label></td>
-                <td><input type="checkbox" id="wp1" name="wProces" value="wp1"></td>
-            </tr>
-            <tr>
-                <td><label for="wp2">Werkproces 2</label></td>
-                <td><input type="checkbox" id="wp2" name="wProces" value="wp2"></td>
-            </tr>
-            <tr>
-                <td><label for="wp3">Werkproces 3</label></td>
-                <td><input type="checkbox" id="wp3" name="wProces" value="wp3"></td>
-            </tr>
-            <tr>
-                <td><label for="wp4">Werkproces 4</label></td>
-                <td><input type="checkbox" id="wp4" name="wProces" value="wp4"></td>
-            </tr>
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
 
-        </table>
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
     </div>
 
+    <!-- B1-K1-W2 -->
     <div class="tab">
-        <!-- TODO   Werkprocessen worden gevuld vanuit database die overeenkomt met de gekozen
-                    opleiding en geselecteerde werkprocessen in de vorige stap
-                    Als er meer dan 4 werkprocessen zijn worden ze verdeeld over meer pagina's -->
-        <h2>Werkproces 1</h2>
+        <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
-        <p><b>Werkwijze</b></p>
-        <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
-        Procedures zijn opgevolgd</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p><b>W2: Levert een bijdrage aan het projectplan</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
 
-        <p><b>Inhoud resultaat</b></p>
-        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoed aan de eisen</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
 
-        <p><b>Vorm resultaat</b></p>
-        <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
-            (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
 
-        <p><b>Digitale vaardigheden</b></p>
-        <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
     </div>
 
+    <!-- B1-K1-W3 -->
     <div class="tab">
-        <h2>Werkproces 2</h2>
+        <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
-        <p><b>Werkwijze</b></p>
-        <p class="small-text">De student werkt nauwkeurig, zelfstandig en in het juiste tempo.
-            Procedures zijn opgevolgd</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="werkwijze" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p><b>W3: Levert een bijdrage aan het ontwerp</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
 
-        <p><b>Inhoud resultaat</b></p>
-        <p class="small-text">Het resultaat is inhoudelijk van kwaliteit en voldoet aan de eisen</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="inhoud" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
 
-        <p><b>Vorm resultaat</b></p>
-        <p class="small-text">Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.
-            (Indien van toepassing is het resultaat in goed Nederlands uitgevoerd</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="vorm" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
 
-        <p><b>Digitale vaardigheden</b></p>
-        <p class="small-text">De student past effectief en efficiënt digitale middelen toe</p>
-        <label>Te weinig</label>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="1" required>1</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="2" required>2</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="3" required>3</label></div>
-        <div class="radio-box"><label><input type="radio" name="digSkill" value="4" required>4</label></div>
-        <label>Altijd</label>
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K1-W4 -->
+    <div class="tab">
+        <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
+
+        <p><b>W4: Bereid de realisatie voor</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K2-W1 -->
+    <div class="tab">
+        <h2>B1-K2: Realiseert en test (onderdelen van) een product</h2>
+
+        <p><b>W1: Realiseert (onderdelen van) een product</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K2-W2 -->
+    <div class="tab">
+        <h2>B1-K2: Realiseert en test (onderdelen van) een product</h2>
+
+        <p><b>W2: Test het ontwikkelde product</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K3-W1 -->
+    <div class="tab">
+        <h2>B1-K3: Levert een product op</h2>
+
+        <p><b>W1: Optimaliseert het product</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K3-W2 -->
+    <div class="tab">
+        <h2>B1-K3: Levert een product op</h2>
+
+        <p><b>W2: Levert het product op</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- B1-K3-W3 -->
+    <div class="tab">
+        <h2>B1-K3: Levert een product op</h2>
+
+        <p><b>W3: Evalueert het opgeleverde product</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- P1-K1-W1 -->
+    <div class="tab">
+        <h2>P1-K1: Onderhoudt en beheert de applicatie</h2>
+
+        <p><b>W1: Onderhoudt een applicatie</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
+    </div>
+
+    <!-- P1-K1-W2 -->
+    <div class="tab">
+        <h2>P1-K1: Onderhoudt en beheert de applicatie</h2>
+
+        <p><b>W2: Beheert gegevens</b></p>
+        <p>Werkwijze</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="0" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft grotendeels nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="3" required>De student heeft altijd nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd</label></div>
+
+        <p>Inhoud resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="0" required>Het resultaat is inhoudelijk gezien van slechte kwaliteit en voldoet te weinig aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="1" required>Het resultaat is inhoudelijk gezien van matige kwaliteit en voldoet voor een klein deel aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="2" required>Het resultaat is inhoudelijk gezien van voldoende kwaliteit en voldoet grotendeels aan de eisen.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-2" value="3" required>Het resultaat is inhoudelijk gezien van goede kwaliteit en voldoet aan alle eisen.</label></div>
+
+        <p>Vorm resultaat</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="0" required>Het resultaat is niet verzorgd uitgevoerd en voldoet te weinig aan de eisen.Indien van toepassing is het resultaat in slecht Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="1" required>Het resultaat is weinig verzorgd uitgevoerd en voldoet aan het minimum van de eisen.Indien van toepassing is het resultaat in matig Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="2" required>Het resultaat is grotendeels verzorgd uitgevoerd en voldoet grotendeels aan de eisen.Indien van toepassing is het resultaat in grotendeels correct Nederlands uitgevoerd.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-3" value="3" required>Het resultaat is verzorgd uitgevoerd en voldoet aan de eisen.Indien van toepassing is het resultaat in correct Nederlands uitgevoerd.</label></div>
+
+        <p>Digitale vaardigheden</p>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="0" required>De student past niet effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="1" required>De student past over het algemeen effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="2" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
+        <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
     </div>
 
     <div class="tab">Eind beoordeling:
@@ -260,6 +483,15 @@ if (isset($_POST["username"])) {
 
 
     <div style="text-align: center;margin-top: 40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
