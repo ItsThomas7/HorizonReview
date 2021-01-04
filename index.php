@@ -35,8 +35,13 @@ if (isset($_POST["username"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/horizonlogo.png" type="image/png" sizes="16x16">
 
+    <!-- JS -->
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/autocomplete.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -51,30 +56,35 @@ if (isset($_POST["username"])) {
     <h1>Beoordeling:</h1>
 
     <!-- Elke "tab" is een stap in het formulier -->
+    <div class="tab">
+        <p>Welke opleiding doet u een beoordeling in?</p>
+        <?php
+            $stmt = $conn->prepare('SELECT * FROM opleidingen');
+            $stmt->execute();
+            $data = $stmt->fetchAll();
+        ?>
+        <select name="educations">
+            <?php foreach($data as $row):?>
+            <option value="<?=$row['opleidingscode']?>"><?=$row["opleiding"]?></option>
+            <?php endforeach ?>
+        </select>
+
+    </div>
+
     <div class="tab">Info praktijkopleider:
         <p><input placeholder="Voornaam..." oninput="this.className = ''"></p>
         <p><input placeholder="Achternaam..." oninput="this.className = ''"></p>
         <p><input placeholder="Bedrijf... " oninput="this.className = '' "></p>
-    </div>
-
-    <div class="tab">Info student:
-        <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
-        <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
+        <hr>
+        <p>Info student:</p>
         <?php
-            $query = $conn->prepare('SELECT * FROM opleidingen');
-            $query->execute();
-            $data = $query->fetchAll();
+        $query = $conn->prepare('SELECT * FROM studenten');
+        $query->execute();
+        $data = $query->fetchAll();
         ?>
 
-        <label for="edu">Kies een opleiding</label>
-        <p>
-            <select class="select" name="edu">
-                <?php foreach($data as $row): ?>
-                    <option value="<?=$row['opleidingscode']?>"><?=$row['opleiding']?></option>
-                <?php endforeach; ?>
-            </select>
-        </p>
-
+        <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
+        <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
         <p>
             <label class="small-text">Aanvinken indien van toepassing</label><br>
             <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></label>
@@ -474,6 +484,7 @@ if (isset($_POST["username"])) {
         <p>Hier komt het complete formulier te staan met alle ingevulde waardes.</p>
     </div>
 
+    <!-- Volgende/Vorige knoppen -->
     <div style="overflow: auto;">
         <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
@@ -481,7 +492,7 @@ if (isset($_POST["username"])) {
         </div>
     </div>
 
-
+    <!-- Step indicator -->
     <div style="text-align: center;margin-top: 40px;">
         <span class="step"></span>
         <span class="step"></span>
