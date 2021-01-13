@@ -87,7 +87,7 @@ if (isset($_POST["username"])) {
         <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
         <p>
             <label class="small-text">Aanvinken indien van toepassing</label><br>
-            <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" value="true"></label>
+            <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" checked></label>
         </p>
     </div>
 
@@ -155,6 +155,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
         <p><b>W1: Stelt de opdracht vast</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W1-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -185,6 +186,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
         <p><b>W2: Levert een bijdrage aan het projectplan</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -215,6 +217,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
         <p><b>W3: Levert een bijdrage aan het ontwerp</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W3-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -245,6 +248,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
         <p><b>W4: Bereid de realisatie voor</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -275,6 +279,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K2: Realiseert en test (onderdelen van) een product</h2>
 
         <p><b>W1: Realiseert (onderdelen van) een product</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -305,6 +310,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K2: Realiseert en test (onderdelen van) een product</h2>
 
         <p><b>W2: Test het ontwikkelde product</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -335,6 +341,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K3: Levert een product op</h2>
 
         <p><b>W1: Optimaliseert het product</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -365,6 +372,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K3: Levert een product op</h2>
 
         <p><b>W2: Levert het product op</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -395,6 +403,7 @@ if (isset($_POST["username"])) {
         <h2>B1-K3: Levert een product op</h2>
 
         <p><b>W3: Evalueert het opgeleverde product</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -424,7 +433,8 @@ if (isset($_POST["username"])) {
     <div class="tab">
         <h2>P1-K1: Onderhoudt en beheert de applicatie</h2>
 
-        <p><b>W1: Onderhoudt een applicatie</b></p>
+        <p><b>W1: Onderhoudt een applicatie</b></p><label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
+
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
@@ -455,6 +465,7 @@ if (isset($_POST["username"])) {
         <h2>P1-K1: Onderhoudt en beheert de applicatie</h2>
 
         <p><b>W2: Beheert gegevens</b></p>
+        <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" checked></label>
         <p>Werkwijze</p>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="1" required>De student heeft te weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. En/of procedures zijn te weinig opgevolgd.</label></div>
         <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-1" value="2" required>De student heeft weinig nauwkeurig, zelfstandig en in het juiste tempo gewerkt. Procedures zijn opgevolgd.</label></div>
