@@ -40,6 +40,11 @@ function showTab(n) {
 
     if(n == (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
+    } else if (n == (x.length - 2)) {
+        document.getElementById("nextBtn").style.display = "inline";
+        document.getElementById("nextBtn").innerHTML = "Submit";
+        document.getElementById("scoreForm").submit();
+
     } else {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";
@@ -63,10 +68,10 @@ function nextPrev(n) {
     currentTab = currentTab + n;
 
     // Als form compleet is, submit de form
-    if(currentTab >= x.length){
-        document.getElementById("scoreForm").submit();
-        return false;
-    }
+    // if(currentTab >= x.length){
+    //     document.getElementById("scoreForm").submit();
+    //     return false;
+    // }
 
     // Anders laat volgende tab zien
     showTab(currentTab);
@@ -110,10 +115,10 @@ function fixStepIndicator(n) {
     }
 }
 
-// Selecteer alle werkproces checkboxes
-document.getElementById('select-all').onclick = function() {
-    var checkboxes = document.getElementsByName('wProces');
-    for (var checkbox of checkboxes) {
-        checkbox.checked = this.checked;
-    }
-}
+// // Selecteer alle werkproces checkboxes
+// document.getElementById('select-all').onclick = function() {
+//     var checkboxes = document.getElementsByName('wProces');
+//     for (var checkbox of checkboxes) {
+//         checkbox.checked = this.checked;
+//     }
+// }
