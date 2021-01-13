@@ -40,28 +40,28 @@ else
 
  ?>
 
- 
+
 <?php
 echo "<table style='border: solid 1px black;'>";
  echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>E-mail</th><th>Bedrijfsnaam</th><th>BPV Begeleider</th><th>POL E-mail</th><th>POL tel nummer</th><th>Tekenbevoegde</th><th>Tekenbevoegde E-Mail</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
 
-class TableRows extends RecursiveIteratorIterator {
-    function __construct($it) {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
+ class TableRows extends RecursiveIteratorIterator {
+     function __construct($it) {
+         parent::__construct($it, self::LEAVES_ONLY);
+     }
 
-    function current() {
-        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
-    }
+     function current() {
+         return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+     }
 
-    function beginChildren() {
-        echo "<tr>";
-    }
+     function beginChildren() {
+         echo "<tr>";
+     }
 
-    function endChildren() {
-        echo "</tr>" . "\n";
-    }
-}
+     function endChildren() {
+         echo "</tr>" . "\n";
+     }
+ }
 
 $servername = "localhost";
 $username = "root";
