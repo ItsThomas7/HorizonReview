@@ -115,6 +115,16 @@ function fixStepIndicator(n) {
     }
 }
 
+// Disable radio buttons for grading by clicking a checkbox
+function toggleGradingButtons() {
+    var x = document.getElementById("gradingBox");
+    if(x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 // // Selecteer alle werkproces checkboxes
 // document.getElementById('select-all').onclick = function() {
 //     var checkboxes = document.getElementsByName('wProces');
