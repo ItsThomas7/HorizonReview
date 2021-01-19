@@ -37,7 +37,9 @@ if (isset($_POST["username"])) {
     <link rel="icon" href="img/horizonlogo.png" type="image/png" sizes="16x16">
 
     <!-- JS -->
-    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/autocomplete.js"></script>
 
     <!-- CSS -->
@@ -155,7 +157,7 @@ if (isset($_POST["username"])) {
         <div class="tab">
             <h2>B1-K1: Levert een bijdrage aan het ontwikkeltraject</h2>
 
-            <p><b>W1: Stelt de opdracht vast</b></p>
+            <p><strong>W1: Stelt de opdracht vast</strong></p>
             <label>Wilt u dit werkproces beoordelen? <input type="checkbox" name="isGrading" onclick="toggleGradingButtons()" checked></label>
 
             <div id="gradingBox">
