@@ -80,11 +80,7 @@ if (isset($_POST["username"])) {
             <p><input placeholder="Bedrijf... " oninput="this.className = '' "></p>
             <hr>
             <p>Info student:</p>
-            <?php
-            $query = $conn->prepare('SELECT * FROM studenten');
-            $query->execute();
-            $data = $query->fetchAll();
-            ?>
+            
 
             <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
             <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
