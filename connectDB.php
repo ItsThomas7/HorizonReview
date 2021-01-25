@@ -8,12 +8,6 @@
 // $dbname = "horizonreview";
 
 // Online
-//  $host = "localhost";
-//  $username = "s104719_horizonreview";
-//  $password = "7J02Um45a";
-//  $dbname = "s104719_horizonreview";
-
-
 $host = "localhost";
 $username = "deb77629n2_horizonreview";
 $password = "dKPWT0e0K";
