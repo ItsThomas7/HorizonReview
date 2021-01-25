@@ -3,21 +3,21 @@ session_start();
 // Er zijn 2 verschillende databases, comment degenen uit die niet nodig
 
 // Local
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "HorizonReview";
+//$host = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "HorizonReview";
 
 // Online
-// $host = "localhost";
-// $username = "s104719_horizonreview";
-// $password = "HorizonReview";
-// $dbname = "s104719_horizonreview";
+$host = "localhost";
+$username = "s104719_horizonreview";
+$password = "7J02Um45a";
+$dbname = "s104719_horizonreview";
 
 $message = "";
 
 try{
-  $connect = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+  $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $connect->setAttribute(PDO::ATTR_ERRMODE,  PDO::ERRMODE_EXCEPTION);
 
 }
