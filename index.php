@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include 'connectDB.php';
+<?php 
+
+include 'connectDB.php';
 include 'login.php';
 
 if (isset($_POST["username"])) {
@@ -37,14 +39,14 @@ if (isset($_POST["username"])) {
     <link rel="icon" href="img/horizonlogo.png" type="image/png" sizes="16x16">
 
     <!-- JS -->
-    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="js/autocomplete.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
 </head>
 
 <body>
@@ -55,7 +57,7 @@ if (isset($_POST["username"])) {
     </header>
 
 
-    <form id="scoreForm" action="">
+    <form id="scoreForm" onsumbit="">
         <h1>Beoordeling:</h1>
 
         <!-- Elke "tab" is een stap in het formulier -->
@@ -82,8 +84,8 @@ if (isset($_POST["username"])) {
             <p>Info student:</p>
             
 
-            <p><input placeholder="Student nr..." id="studentNr" oninput="this.className = ''"></p>
-            <p><input placeholder="Student naam..." id="studentNaam" oninput="this.className = ''"></p>
+            <p><input placeholder="Student nr..." id="studentNr" autocomplete="off"></p>
+            <p><input placeholder="Student naam..." id="studentNaam"></p>
             <p>
                 <label class="small-text">Aanvinken indien van toepassing</label><br>
                 <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" checked></label>
@@ -561,7 +563,24 @@ if (isset($_POST["username"])) {
 
     <!--  JS  -->
     <script src="js/main.js"></script>
-
 </body>
-
 </html>
+
+<script>
+    $(document).ready(function() {
+        $('#studentNr').autocomplete({
+            source: "fetch.php",
+            minLength: 1,
+            select: function(event, ui)
+            {
+                $('#studentNr').val(ui.item.value);
+                $('#studentNaam').val(ui.item.label);
+            }
+        }).data('ui-autocomplete')._renderItem = function(ul, item) {
+            return $("<li class='ui-autocomplete-row'></li>")
+                .data("item.autocomplete", item)
+                .append(item.label)
+                .appendTo(ul);
+        };
+    });
+</script>

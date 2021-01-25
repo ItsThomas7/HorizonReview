@@ -1,9 +1,19 @@
 <?php
 session_start();
+// Er zijn 2 verschillende databases, comment degenen uit die niet nodig
+
+// Local
 $host = "localhost";
 $username = "root";
 $password = "";
 $database = "HorizonReview";
+
+// Online
+// $host = "localhost";
+// $username = "s104719_horizonreview";
+// $password = "HorizonReview";
+// $dbname = "s104719_horizonreview";
+
 $message = "";
 
 try{
