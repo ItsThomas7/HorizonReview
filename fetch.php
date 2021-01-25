@@ -1,12 +1,21 @@
 <?php
 
-$servername = "localhost";
+// Er zijn 2 verschillende databases, comment degenen uit die niet nodig
+
+// Local
+$host = "localhost";
 $username = "root";
 $password = "";
 $dbname = "horizonreview";
 
+// Online
+//  $host = "localhost";
+//  $username = "s104719_horizonreview";
+//  $password = "7J02Um45a";
+//  $dbname = "s104719_horizonreview";
+
 if(isset($_GET["term"])) {
-    $connect = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
+    $connect = new PDO("mysql:host=$host; dbname=$dbname", $username, $password);
 
     $query = "SELECT * FROM studenten WHERE Studentnummer LIKE '%".$_GET["term"]."%' ORDER BY Voornaam ASC";
 
