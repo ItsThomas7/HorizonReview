@@ -24,16 +24,16 @@ echo "<table style='border: solid 1px black;'>";
 // Er zijn 2 verschillende databases, comment degenen uit die niet nodig
 
 // Local
-// $host = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "horizonreview";
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "horizonreview";
 
 // Online
-$host = "localhost";
-$username = "deb77629n2_horizonreview";
-$password = "dKPWT0e0K";
-$dbname = "deb77629n2_horizonreview";
+// $host = "localhost";
+// $username = "deb77629n2_horizonreview";
+// $password = "dKPWT0e0K";
+// $dbname = "deb77629n2_horizonreview";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

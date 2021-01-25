@@ -52,8 +52,8 @@ if (isset($_POST["username"])) {
 <body>
     <header class="topnav">
         <img src="img/horizonlogo.png" height="150px" widht="400px" style="  display: block;
-  margin-left: auto;
-  margin-right: auto;">
+                    margin-left: auto;
+                    margin-right: auto;">
     </header>
 
 
