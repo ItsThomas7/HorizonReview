@@ -1,13 +1,23 @@
 <?php
 session_start();
+// Er zijn 2 verschillende databases, comment degenen uit die niet nodig
+
+// Local
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "HorizonReview";
+$dbname = "HorizonReview";
+
+// Online
+// $host = "localhost";
+// $username = "deb77629n2_horizonreview";
+// $password = "dKPWT0e0K";
+// $dbname = "deb77629n2_horizonreview";
+
 $message = "";
 
 try{
-  $connect = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+  $connect = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
   $connect->setAttribute(PDO::ATTR_ERRMODE,  PDO::ERRMODE_EXCEPTION);
 
 }
@@ -56,12 +66,12 @@ if(isset($_POST["username"]))
     <?php
     if(isset($message))
     {
-        echo '<label class="text-danger">'.$message.'</labe>';
+        echo '<label class="text-danger">'.$message.'</label>';
     }
       ?>
     <button class="open-login" onclick="toggleLogin(true)">Admin</button>
 
-    <div class="login-popup" id="loginForm">
+    <div class="login-popup" id="loginForm" >
 
         <form method="post" class="form-container">
             <h2>Inloggen</h2>
@@ -80,3 +90,22 @@ if(isset($_POST["username"]))
     </div>
   </body>
 </html>
+<script>
+  // Open en close de login box door middel van de buttons
+function toggleLogin(b) {
+    if (b == true) {
+        document.getElementById("loginForm").style.display = "block";
+    }
+    else {
+        document.getElementById("loginForm").style.display = "none";
+    }
+}
+
+// Close login box als user buiten de div klikt
+document.addEventListener('mouseup', function(e) {
+    var loginBox = document.getElementById("loginForm");
+    if(!loginBox.contains(e.target)) {
+        loginBox.style.display = 'none';
+    }
+});
+</script>

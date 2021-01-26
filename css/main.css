@@ -203,3 +203,16 @@ div.radio-box {
 .step.finish {
     background-color: #4CAF50;
 }
+
+.ui-autocomplete-row
+{
+    padding:8px;
+    background-color: #f4f4f4;
+    border-bottom:1px solid #ccc;
+    font-weight:bold;
+}
+
+.ui-autocomplete-row:hover
+{
+    background-color: #ddd;
+}

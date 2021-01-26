@@ -1,22 +1,3 @@
-// Open en close de login box door middel van de buttons
-function toggleLogin(b) {
-    if (b == true) {
-        document.getElementById("loginForm").style.display = "block";
-    }
-    else {
-        document.getElementById("loginForm").style.display = "none";
-    }
-}
-
-// Close login box als user buiten de div klikt
-document.addEventListener('mouseup', function(e) {
-    var loginBox = document.getElementById("loginForm");
-    if(!loginBox.contains(e.target)) {
-        loginBox.style.display = 'none';
-    }
-});
-
-
 // Score formulier tabs
 var currentTab = 0; // Current tab is first
 showTab(currentTab); // Display current tab
@@ -43,8 +24,7 @@ function showTab(n) {
     } else if (n == (x.length - 2)) {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Submit";
-        document.getElementById("scoreForm").submit();
-
+        //document.getElementById("scoreForm").submit();
     } else {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";

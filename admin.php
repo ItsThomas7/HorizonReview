@@ -43,7 +43,7 @@ else
 
 <?php
 echo "<table style='border: solid 1px black;'>";
- echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>E-mail</th><th>Bedrijfsnaam</th><th>BPV Begeleider</th><th>POL E-mail</th><th>POL tel nummer</th><th>Tekenbevoegde</th><th>Tekenbevoegde E-Mail</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
+ echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>Bedrijf</th><th>BPV begeleider</th><th>E-mail BPV Begeleider</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
 
  class TableRows extends RecursiveIteratorIterator {
      function __construct($it) {
@@ -63,15 +63,26 @@ echo "<table style='border: solid 1px black;'>";
      }
  }
 
-$servername = "localhost";
+// Local
+$host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "HorizonReview";
+$dbname = "horizonreview";
+
+// Online
+// $host = "localhost";
+// $username = "deb77629n2_horizonreview";
+// $password = "dKPWT0e0K";
+// $dbname = "deb77629n2_horizonreview";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+<<<<<<< HEAD
     $stmt = $conn->prepare("SELECT studentnummer, klas, voornaam, tussenvoegsel, achternaam, bedrijf, Begindatum, einddatum, uren, opleiding FROM studenten");
+=======
+    $stmt = $conn->prepare("SELECT * FROM studenten");
+>>>>>>> 3b82bef172f341eb11d8a368412afc6f96844936
     $stmt->execute();
 
     // set the resulting array to associative
