@@ -71,7 +71,7 @@ $dbname = "HorizonReview";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT id, studentnr, klas, voornaam, tussenvoegsel, achternaam, email, bedrijfsnaam, bpvbegeleider, polemail, poltelnr, tekenbevoegde, tekenbevoegdemail, startstage, eindstage, uren, opleidingscode FROM students");
+    $stmt = $conn->prepare("SELECT studentnummer, klas, voornaam, tussenvoegsel, achternaam, bedrijf, Begindatum, einddatum, uren, opleiding FROM studenten");
     $stmt->execute();
 
     // set the resulting array to associative
