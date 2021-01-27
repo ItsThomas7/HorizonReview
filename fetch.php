@@ -9,10 +9,10 @@ $password = "";
 $dbname = "horizonreview";
 
 // Online
-// $host = "localhost";
-// $username = "deb77629n2_horizonreview";
-// $password = "dKPWT0e0K";
-// $dbname = "deb77629n2_horizonreview";
+ $host = "localhost";
+ $username = "deb77629n2_horizonreview";
+ $password = "dKPWT0e0K";
+ $dbname = "deb77629n2_horizonreview";
 
 if(isset($_GET["term"])) {
     $connect = new PDO("mysql:host=$host; dbname=$dbname", $username, $password);

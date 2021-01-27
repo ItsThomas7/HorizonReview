@@ -9,6 +9,7 @@
     <meta name="description" content="Stage studenten beoordelen">
     <meta name="keywords" content="Horizon, Stage, Beoordelen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/horizonlogo.png" type="image/png" sizes="16x16">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -43,7 +44,7 @@ else
 
 <?php
 echo "<table style='border: solid 1px black;'>";
- echo "<tr><th>Id</th><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>Bedrijf</th><th>BPV begeleider</th><th>E-mail BPV Begeleider</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
+ echo "<tr><th>Student Nr.</th><th>Klas</th><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>Bedrijf</th><th>BPV begeleider</th><th>E-mail BPV Begeleider</th><th>Start Stage</th><th>Eind Stage</th><th>Uren</th><th>Opleidingscode</th></tr>";
 
  class TableRows extends RecursiveIteratorIterator {
      function __construct($it) {
@@ -64,21 +65,21 @@ echo "<table style='border: solid 1px black;'>";
  }
 
 // Local
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "horizonreview";
+//$host = "localhost";
+//$username = "root";
+//$password = "";
+//$dbname = "horizonreview";
 
 // Online
-// $host = "localhost";
-// $username = "deb77629n2_horizonreview";
-// $password = "dKPWT0e0K";
-// $dbname = "deb77629n2_horizonreview";
+ $host = "localhost";
+ $username = "deb77629n2_horizonreview";
+ $password = "dKPWT0e0K";
+ $dbname = "deb77629n2_horizonreview";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT studentnummer, klas, voornaam, tussenvoegsel, achternaam, bedrijf, Begindatum, einddatum, uren, opleiding FROM studenten");
+    $stmt = $conn->prepare("SELECT * FROM studenten");
     $stmt->execute();
 
     // set the resulting array to associative

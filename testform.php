@@ -27,6 +27,7 @@ $_SESSION['post-data'] = $_POST;
             text-align: right;
         }
     </style>
+    <link rel="icon" href="img/horizonlogo.png" type="image/png" sizes="16x16">
 </head>
 <body>
 <table>

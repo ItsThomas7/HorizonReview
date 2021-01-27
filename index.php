@@ -57,7 +57,7 @@ if (isset($_POST["username"])) {
                     margin-right: auto;">
     </header>
 
-    <form id="scoreForm" action="testform.php" method="POST">
+    <form id="scoreForm" action="eindformulier.php" method="POST">
         <h1>Beoordeling:</h1>
 
         <!-- Elke "tab" is een stap in het formulier -->
@@ -70,7 +70,7 @@ if (isset($_POST["username"])) {
             ?>
             <select name="educations">
                 <?php foreach ($data as $row) : ?>
-                    <option value="<?= $row['opleidingscode'] ?>"><?= $row["opleiding"] ?></option>
+                    <option value="<?= $row['opleiding'] ?>"><?= $row["opleiding"] ?></option>
                 <?php endforeach ?>
             </select>
 

@@ -5,6 +5,13 @@
       <webServer id="cbbb96c2-a751-412e-8c45-02cd577e2dd4" name="localhost" url="http://localhost:8080/stage/HorizonReview/">
         <fileTransfer mountedRoot="C:\xampp\htdocs" accessType="MOUNT" port="0" />
       </webServer>
+      <webServer id="96f9dfec-fba4-4db8-814a-6b2bb34cefe0" name="hcstartup" url="http://hcstartup.nl/horizonreview">
+        <fileTransfer host="ftp.hcstartup.nl" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
