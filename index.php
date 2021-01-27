@@ -1,6 +1,6 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<?php 
+<?php
 
 
 include 'connectDB.php';
@@ -82,7 +82,7 @@ if (isset($_POST["username"])) {
             <p><input placeholder="Bedrijf... " name="polCompany"></p>
             <hr>
             <p>Info student:</p>
-            
+
 
             <p><input placeholder="Student nr..." id="studentNr" name="stuNr" autocomplete="off"></p>
             <p><input placeholder="Student naam..." id="studentNaam" name="stuName"></p>
@@ -525,12 +525,12 @@ if (isset($_POST["username"])) {
                 <div class="radio-box"><label class="small-text"><input type="radio" name="P1W2-4" value="3" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
                 <div class="radio-box"><label class="small-text"><input type="radio" name="P1W2-4" value="4" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
             </div>
-        
+
 
         </div>
 
         <div class="tab">Eind beoordeling:
-            <p>Hier komt het complete formulier te staan met alle ingevulde waardes.</p>
+          <?php include 'eindformulier.php'; ?>
         </div>
 
         <!-- Volgende/Vorige knoppen -->
