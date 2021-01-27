@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Er zijn 2 verschillende databases, comment degenen uit die niet nodig
 
 // Local

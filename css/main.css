@@ -145,9 +145,9 @@ input.invalid {
 }
 
 div.radio-box {
-    width: 200px;
+    width: 290px;
     display: inline-block;
-    min-height: 200px;
+    min-height: 150px;
     vertical-align: top;
     text-align: justify;
     margin: 0 5px 5px 5px;
@@ -155,8 +155,8 @@ div.radio-box {
 
 .radio-box label {
     display: block;
-    width: 200px;
-    min-height: 200px;
+    width: 290px;
+    min-height: 150px;
     background-color: #ddd;
     padding: 10px 20px;
     border: 2px solid #444;

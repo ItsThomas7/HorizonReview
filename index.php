@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+session_start();
 
 include 'connectDB.php';
 include 'login.php';
@@ -56,8 +57,7 @@ if (isset($_POST["username"])) {
                     margin-right: auto;">
     </header>
 
-
-    <form id="scoreForm" onsumbit="">
+    <form id="scoreForm" action="testform.php" method="POST">
         <h1>Beoordeling:</h1>
 
         <!-- Elke "tab" is een stap in het formulier -->
@@ -77,15 +77,15 @@ if (isset($_POST["username"])) {
         </div>
 
         <div class="tab">Info praktijkopleider:
-            <p><input placeholder="Voornaam..." oninput="this.className = ''"></p>
-            <p><input placeholder="Achternaam..." oninput="this.className = ''"></p>
-            <p><input placeholder="Bedrijf... " oninput="this.className = '' "></p>
+            <p><input placeholder="Voornaam..." name="polName"></p>
+            <p><input placeholder="Achternaam..." name="polLastName"></p>
+            <p><input placeholder="Bedrijf... " name="polCompany"></p>
             <hr>
             <p>Info student:</p>
             
 
-            <p><input placeholder="Student nr..." id="studentNr" autocomplete="off"></p>
-            <p><input placeholder="Student naam..." id="studentNaam"></p>
+            <p><input placeholder="Student nr..." id="studentNr" name="stuNr" autocomplete="off"></p>
+            <p><input placeholder="Student naam..." id="studentNaam" name="stuName"></p>
             <p>
                 <label class="small-text">Aanvinken indien van toepassing</label><br>
                 <label>Heeft de student voldaan aan het uren aantal afgesproken in de praktijkovereenkomst?<input type="checkbox" name="hours" checked></label>
@@ -525,6 +525,7 @@ if (isset($_POST["username"])) {
                 <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="3" required>De student past meestal effectief en efficiënt digitale middelen toe.</label></div>
                 <div class="radio-box"><label class="small-text"><input type="radio" name="K1W2-4" value="4" required>De student past altijd effectief en efficiënt digitale middelen toe.</label></div>
             </div>
+        
 
         </div>
 

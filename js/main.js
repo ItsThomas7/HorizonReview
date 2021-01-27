@@ -24,7 +24,7 @@ function showTab(n) {
     } else if (n == (x.length - 2)) {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Submit";
-        //document.getElementById("scoreForm").submit();
+        document.getElementById("scoreForm").submit();
     } else {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";
