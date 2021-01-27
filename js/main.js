@@ -4,6 +4,7 @@ showTab(currentTab); // Display current tab
 
 function showTab(n) {
     console.log(document);
+    document.getElementById("submitBtn").style.display = "none";
     var x = document.getElementsByClassName("tab");
 
     if(!x){
@@ -22,9 +23,8 @@ function showTab(n) {
     if(n == (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
     } else if (n == (x.length - 2)) {
-        document.getElementById("nextBtn").style.display = "inline";
-        document.getElementById("nextBtn").innerHTML = "Submit";
-        document.getElementById("scoreForm").submit();
+        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("submitBtn").style.display = "inline";
     } else {
         document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("nextBtn").innerHTML = "Volgende";

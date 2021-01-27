@@ -109,6 +109,25 @@ input {
     border-radius: 20px;
 }
 
+input[type=submit]{
+    background-color: #140C73;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    border-radius: 27px;
+}
+
+input[type=submit]:hover{
+    opacity: 1;
+  }
+  input[type=submit]:enabled{
+    border: none;
+  }
+
 select {
     padding: 10px;
     margin-bottom: 10px;
